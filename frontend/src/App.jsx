@@ -1,18 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
+import { Route, Routes } from "react-router-dom";
+import './App.css';
+import Forms from './components/forms/forms.jsx';
+import RoomPage from './pages/RoomPage/RoomPage.jsx';
 
 const App = () => {
-  const [count, setCount] = useState(0)
 
   return (
-
-      <div>
-        <h1>Hello World</h1>
+    <BrowserRouter> {/* Wrap your Routes inside BrowserRouter */}
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Forms />} />
+          <Route path="/:roomId" element={<RoomPage />} />
+        </Routes>
       </div>
+    </BrowserRouter>
+  );
+};
 
-  )
-}
-
-export default App
+export default App;
